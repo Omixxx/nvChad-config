@@ -15,6 +15,18 @@ local plugins = {
   --
   --
   {
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = "Oil",
+    confg = function()
+      require("oil").setup {
+        -- your configuration comes here
+      }
+    end,
+  },
+  {
     "Myzel394/easytables.nvim",
     config = function(_, opts)
       require("easytables").setup {}

@@ -49,7 +49,7 @@ M.general = {
     ["<leader>ind"] = { "gg=G<C-o>", "indent the whole file" },
     ["H"] = { ":lua require('harpoon.ui').nav_prev() <CR>", "previous marked file" },
     ["L"] = { ":lua require('harpoon.ui').nav_next() <CR>", "next marked file" },
-    ["<C-.>"] = { ":NvimTreeToggle<CR>", "Toggle tree view" },
+    ["<C-.>"] = { "<cmd>Oil<CR>", "Open parent directory in a vim buffue" },
     ["gl"] = { "$, go to the end of the line" },
     ["gh"] = { "0w, go to the start of the line" },
     ["vis"] = { "" },
