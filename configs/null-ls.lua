@@ -27,9 +27,8 @@ local opts = {
     null_ls.builtins.formatting.goimports_reviser,
 
     -- typescript
-    null_ls.builtins.formatting.clang_format.with {
+    null_ls.builtins.formatting.prettier.with {
       filetypes = { "typescript", "typescriptreact" },
-      extra_args = { "--style=Google" },
     },
   },
 
