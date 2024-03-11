@@ -1,6 +1,6 @@
 ### Showcase
 
-![home]("./imgs/home.png")
+![home]("imgs/home.png")
 
 ![go]("./imgs/go.png")
 
