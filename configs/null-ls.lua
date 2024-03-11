@@ -25,6 +25,12 @@ local opts = {
     -- go
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.goimports_reviser,
+
+    -- typescript
+    null_ls.builtins.formatting.clang_format.with {
+      filetypes = { "typescript", "typescriptreact" },
+      extra_args = { "--style=Google" },
+    },
   },
 
   on_attach = function(client, bufnr)
