@@ -14,6 +14,7 @@ local plugins = {
   --
   --
   --
+  --
   {
     "stevearc/oil.nvim",
     opts = {},

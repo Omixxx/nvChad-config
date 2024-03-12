@@ -10,8 +10,9 @@
 --
 --
 
--- snipmate format
-vim.g.snipmate_snippets_path = "./snippets/"
+-- snipmate folder
+vim.g.snipmate_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/snippets/snipmate"
+
 -- vim.o.guifont = "JetBrainsMonoNL"
 vim.cmd ": set relativenumber"
 vim.cmd ": set scrolloff=5"
