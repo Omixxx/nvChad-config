@@ -15,6 +15,23 @@ local plugins = {
   --
   --
   --
+  -- lazy.nvim
+  {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
+    config = function()
+      require("hardtime").setup {
+        disabled_keys = {
+          ["<Up>"] = {},
+          ["<Right>"] = {},
+          ["<Down>"] = {},
+          ["<Left>"] = {},
+        },
+      }
+    end,
+  },
   {
     "stevearc/oil.nvim",
     opts = {},

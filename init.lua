@@ -59,3 +59,10 @@ end
 -- setup spellceck
 vim.opt.spelllang = { "en_us", "it" }
 vim.opt.spell = true
+
+-- setup firenvim
+if vim.g.started_by_firenvim == true then
+  vim.o.laststatus = 0
+else
+  vim.o.laststatus = 2
+end
