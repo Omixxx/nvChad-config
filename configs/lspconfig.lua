@@ -19,12 +19,12 @@ lspconfig.rust_analyzer.setup {
   },
 }
 
-lspconfig.jdtls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { vim.fn.expand "~/.local/share/nvim/mason/bin/jdtls" },
-  filetypes = { "java" },
-}
+-- lspconfig.jdtls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   -- cmd = { vim.fn.expand "~/.local/share/nvim/mason/bin/jdtls" },
+--   filetypes = { "java" },
+-- }
 
 lspconfig.dartls.setup {
   on_attach = on_attach,
