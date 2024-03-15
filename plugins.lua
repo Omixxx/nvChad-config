@@ -18,6 +18,14 @@ local plugins = {
   -- lazy.nvim
   --
   {
+    dir = "~/projects/pastelli.nvim", -- Your path
+    name = "pastelli",
+    lazy = false,
+    config = function()
+      require("pastelli").setup {}
+    end,
+  },
+  {
     "nvim-java/nvim-java",
     lazy = false,
     dependencies = {
@@ -39,12 +47,12 @@ local plugins = {
       },
     },
     config = function()
-      require("java").setup {}
-      require("lspconfig").jdtls.setup {
-        on_attach = require("plugins.configs.lspconfig").on_attach,
-        capabilities = require("plugins.configs.lspconfig").capabilities,
-        filetypes = { "java" },
-      }
+      -- require("java").setup {}
+      -- require("lspconfig").jdtls.setup {
+      --   on_attach = require("plugins.configs.lspconfig").on_attach,
+      --   capabilities = require("plugins.configs.lspconfig").capabilities,
+      --   filetypes = { "java" },
+      -- }
     end,
   },
   {
@@ -190,6 +198,7 @@ local plugins = {
       overrides.mason,
       ensure_installed = {
         "marksman",
+        "rubyfmt",
         "dockerfile-language-server",
         "xmlformatter",
         "black",
@@ -206,6 +215,7 @@ local plugins = {
         "tailwindcss-language-server",
         "prettier",
         "gopls",
+        "ruby-lsp",
       },
     },
     automatic_installation = true,

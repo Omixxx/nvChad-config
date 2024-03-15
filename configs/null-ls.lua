@@ -30,6 +30,9 @@ local opts = {
     null_ls.builtins.formatting.prettier.with {
       filetypes = { "typescript", "typescriptreact" },
     },
+
+    -- ruby
+    null_ls.builtins.formatting.rubyfmt.with { filetypes = { "ruby" } },
   },
 
   on_attach = function(client, bufnr)

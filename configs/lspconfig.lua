@@ -19,12 +19,12 @@ lspconfig.rust_analyzer.setup {
   },
 }
 
--- lspconfig.jdtls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   -- cmd = { vim.fn.expand "~/.local/share/nvim/mason/bin/jdtls" },
---   filetypes = { "java" },
--- }
+lspconfig.jdtls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { vim.fn.expand "~/.local/share/nvim/mason/bin/jdtls" },
+  filetypes = { "java" },
+}
 
 lspconfig.dartls.setup {
   on_attach = on_attach,
@@ -107,4 +107,13 @@ lspconfig.marksman.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "md", "markdown" },
+}
+
+lspconfig.ruby_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "ruby" },
+  root_dir = function(fname)
+    return util.root_pattern ".git" (fname) or vim.fn.getcwd()
+  end,
 }
