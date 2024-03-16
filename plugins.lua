@@ -197,6 +197,8 @@ local plugins = {
     opts = {
       overrides.mason,
       ensure_installed = {
+        "solargraph",
+        "standardrb",
         "marksman",
         "rubyfmt",
         "dockerfile-language-server",

@@ -109,7 +109,7 @@ lspconfig.marksman.setup {
   filetypes = { "md", "markdown" },
 }
 
-lspconfig.ruby_ls.setup {
+lspconfig.solargraph.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "ruby" },
