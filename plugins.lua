@@ -18,6 +18,15 @@ local plugins = {
   -- lazy.nvim
   --
   {
+    "lervag/vimtex",
+    lazy = false,
+    init = function()
+      -- Use init for configuration, don't use the more common "config".
+      --
+      vim.g.vimtex_quickfix_open_on_warning = 0
+    end,
+  },
+  {
     dir = "~/projects/pastelli.nvim", -- Your path
     name = "pastelli",
     lazy = false,
@@ -197,6 +206,8 @@ local plugins = {
     opts = {
       overrides.mason,
       ensure_installed = {
+        "latexindent",
+        "latex-ls",
         "solargraph",
         "standardrb",
         "marksman",

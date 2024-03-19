@@ -70,4 +70,20 @@ M.nvimtree = {
   },
 }
 
+M.telescope = {
+  defaults = {
+    vimgrep_arguments = {
+      "rg",
+      "-L",
+      "--color=always",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
+    prompt_prefix = " ",
+  },
+}
+
 return M

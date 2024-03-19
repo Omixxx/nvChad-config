@@ -117,3 +117,9 @@ lspconfig.solargraph.setup {
     return util.root_pattern ".git" (fname) or vim.fn.getcwd()
   end,
 }
+
+lspconfig.ltex.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "tex" },
+}
