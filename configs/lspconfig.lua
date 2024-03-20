@@ -118,7 +118,7 @@ lspconfig.solargraph.setup {
   end,
 }
 
-lspconfig.ltex.setup {
+lspconfig.texlab.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "tex" },
