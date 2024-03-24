@@ -38,12 +38,13 @@ end
 
 if vim.g.neovide then
   vim.keymap.set("i", "<C-backspace>", "<C-w>")
+  vim.o.guifont = "JetBrains:h14" -- text below applies for VimScript
   vim.g.neovide_scale_factor = 0.75
   vim.g.neovide_no_idle = true
   -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
   vim.g.neovide_cursor_vfx_mode = "pixiedust"
   vim.g.neovide_transparency = 0.3
-  vim.g.transparency = 0.8
+  vim.g.transparency = 0.7
   vim.g.neovide_background_color = "#0f1117" .. alpha()
   vim.keymap.set("n", "<C-+>", function()
     change_scale_factor(1.25)
