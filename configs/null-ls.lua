@@ -33,7 +33,6 @@ local opts = {
 
     -- ruby
     null_ls.builtins.formatting.rubyfmt.with { filetypes = { "ruby" } },
-
   },
 
   on_attach = function(client, bufnr)
