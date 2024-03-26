@@ -73,6 +73,11 @@ M.disabled = {
 
 M.lspconfig = {
   n = {
+    ["<leader>lr"] = {
+      function()
+        require("telescope.builtin").lsp_references()
+      end,
+    },
     ["<leader>ld"] = {
       function()
         vim.diagnostic.open_float { border = "rounded" }
