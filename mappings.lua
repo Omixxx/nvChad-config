@@ -52,12 +52,12 @@ M.general = {
     ["<C-.>"] = { "<cmd>Oil<CR>", "Open parent directory in a vim buffue" },
     ["gl"] = { "$, go to the end of the line" },
     ["gh"] = { "0w, go to the start of the line" },
-    ["vis"] = { "" },
   },
   v = {
     ["gl"] = { "$, go to the end of the line" },
     ["gh"] = { "0w, go to the start of the line" },
     ["tr"] = { "<cmd>Translate EN<CR>" },
+    ["gs"] = {'"hy:%s/<C-r>h//g<left><left><left>', "global substitution"},
   },
   i = {},
 }
