@@ -28,7 +28,7 @@ M.general = {
     ["gl"] = { "$", desc = "go to the end of the line" },
     ["gh"] = { "0w", desc = "go to the start of the line" },
     ["*"] = { "*``" },
-    ["gs"] = { 'viw"hy:,$s/<C-r>h//g<left><left><left>', desc = "global substitution" },
+    ["gs"] = { 'maviw"hy:,$s/<C-r>h//g<left><left>', desc = "global substitution" },
   },
   v = {
     ["gl"] = { "$, go to the end of the line" },
@@ -58,8 +58,8 @@ M.lspconfig = {
   },
 }
 
--- more keybinds!
--- functions
+-- 
+-- FUNCTIONS
 --
 
 function Flash()
