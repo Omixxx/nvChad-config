@@ -68,6 +68,7 @@ M.nvimtree = {
       },
     },
   },
+  view = {adaptive_size = true}
 }
 
 M.telescope = {
