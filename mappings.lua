@@ -11,53 +11,29 @@ local M = {}
 
 M.general = {
   n = {
-    ["s"] = {
-      function()
-        require("flash").jump {
-          remote_op = {
-            restore = true,
-            motion = nil,
-          },
-        }
-      end,
-      desc = "Flash",
-    },
-    ["<leader>td"] = {
-      function()
-        require("hex").toggle()
-      end,
-      "hex dump",
-    },
-    ["gn"] = {
-      function()
-        require("trouble").next { skip_groups = true, jump = true }
-      end,
-    },
-    ["<leader>fl"] = {
-      function()
-        require("telescope").load_extension "flutter"
-      end,
-      "Flutter tools",
-    },
-    ["<leader>a"] = { "<cmd>AerialToggle!<CR>", "Aerial" },
-    ["<leader>w"] = { ":w<CR>", "save the current file" },
-    ["<leader>bc"] = { ":bdelete<CR>", "close the current buffer" },
-    ["<leader>m"] = { ":lua require('harpoon.mark').add_file()<CR>", "mark the file" },
-    ["<leader>h"] = { ":lua require('harpoon.ui').toggle_quick_menu()<CR>", "harpoon" },
-    ["<leader>e"] = { ":NvimTreeToggle<CR>", "Toggle tree view" },
+    ["s"] = { ":lua Flash()<CR>", desc = "Flash" },
+    ["<leader>td"] = { ":lua Hex()<CR>", desc = "hex dump" },
+    ["gn"] = { "lua TroubleNext()<CR>", desc = "next error" },
+    ["<leader>a"] = { "<cmd>AerialToggle!<CR>", desc = "Aerial" },
+    ["<leader>w"] = { ":w<CR>", desc = "save the current file" },
+    ["<leader>bc"] = { ":bdelete<CR>", desc = "close the current buffer" },
+    ["<leader>m"] = { ":lua require('harpoon.mark').add_file()<CR>", desc = "mark the file" },
+    ["<leader>h"] = { ":lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "harpoon" },
+    ["<leader>e"] = { ":NvimTreeToggle<CR>", desc = "Toggle tree view" },
     ["<leader>q"] = { ":q<CR>, close vim" },
-    ["<leader>ind"] = { "gg=G<C-o>", "indent the whole file" },
-    ["H"] = { ":lua require('harpoon.ui').nav_prev() <CR>", "previous marked file" },
-    ["L"] = { ":lua require('harpoon.ui').nav_next() <CR>", "next marked file" },
-    ["<C-.>"] = { "<cmd>Oil<CR>", "Open parent directory in a vim buffue" },
-    ["gl"] = { "$, go to the end of the line" },
-    ["gh"] = { "0w, go to the start of the line" },
+    ["<leader>ind"] = { "gg=G<C-o>", desc = "indent the whole file" },
+    ["H"] = { ":lua require('harpoon.ui').nav_prev() <CR>", desc = "previous marked file" },
+    ["L"] = { ":lua require('harpoon.ui').nav_next() <CR>", desc = "next marked file" },
+    ["<C-.>"] = { "<cmd>Oil<CR>", desc = "Open parent directory in a vim buffue" },
+    ["gl"] = { "$", desc = "go to the end of the line" },
+    ["gh"] = { "0w", desc = "go to the start of the line" },
+    ["*"] = { "*``" },
+    ["gs"] = { 'viw"hy:,$s/<C-r>h//g<left><left><left>', desc = "global substitution" },
   },
   v = {
     ["gl"] = { "$, go to the end of the line" },
     ["gh"] = { "0w, go to the start of the line" },
     ["tr"] = { "<cmd>Translate EN<CR>" },
-    ["gs"] = {'"hy:%s/<C-r>h//g<left><left><left>', "global substitution"},
   },
   i = {},
 }
@@ -73,38 +49,54 @@ M.disabled = {
 
 M.lspconfig = {
   n = {
-    ["<leader>lr"] = {
-      function()
-        require("telescope.builtin").lsp_references()
-      end,
-    },
-    ["<leader>ld"] = {
-      function()
-        vim.diagnostic.open_float { border = "rounded" }
-      end,
-      "Floating diagnostic",
-    },
-    ["<leader>rn"] = {
-      function()
-        require("nvchad.renamer").open()
-      end,
-      "LSP rename",
-    },
-
-    ["<leader>la"] = { "<cmd>CodeActionMenu<CR>", "LSP code action" },
-    ["gn"] = {
-      function()
-        vim.diagnostic.goto_next { wrap = true }
-      end,
-    },
-    ["gN"] = {
-      function()
-        vim.diagnostic.get_prev { wrap = true }
-      end,
-    },
+    ["<leader>lr"] = { ":lua LspReference()<cr>", desc = "go to reference" },
+    ["<leader>ld"] = { ":lua FloatingDiagnostics()<cr>", desc = "Floating diagnostic" },
+    ["<leader>rn"] = { ":lua LspRename()<CR>", desc = "LSP rename" },
+    ["<leader>la"] = { "<cmd>CodeActionMenu<CR>", desc = "LSP code action" },
+    ["gn"] = { "lua: LspGoToNext()<CR>", desc = "go to next diagnostic" },
+    ["gN"] = { "lua: LspGoToPrevious()<CR>", desc = "go to previous diagnostic" },
   },
 }
 
 -- more keybinds!
+-- functions
+--
+
+function Flash()
+  require("flash").jump {
+    remote_op = {
+      restore = true,
+      motion = nil,
+    },
+  }
+end
+
+function Hex()
+  require("hex").toggle()
+end
+
+function TroubleNext()
+  require("trouble").next { skip_groups = true, jump = true }
+end
+
+function LspReference()
+  require("telescope.builtin").lsp_references()
+end
+
+function FloatingDiagnostics()
+  vim.diagnostic.open_float { border = "rounded" }
+end
+
+function LspRename()
+  require("nvchad.renamer").open()
+end
+
+function LspGoToNext()
+  vim.diagnostic.goto_next { wrap = true }
+end
+
+function LspGoToPrevious()
+  vim.diagnostic.get_prev { wrap = true }
+end
 
 return M
