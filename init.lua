@@ -68,4 +68,4 @@ else
   vim.o.laststatus = 2
 end
 
-vim.cmd('highlight CursorLine term=reverse cterm=reverse gui=reverse')
+vim.cmd("highlight CursorLine guibg=#000000")
