@@ -38,7 +38,7 @@ end
 
 if vim.g.neovide then
   vim.keymap.set("i", "<C-backspace>", "<C-w>")
-  vim.o.guifont = "JetBrains:h14" -- text below applies for VimScript
+  vim.o.guifont = "Hack,Noto_Color_Emoji:h12:b" -- text below applies for VimScript
   vim.g.neovide_scale_factor = 0.75
   vim.g.neovide_no_idle = true
   -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
@@ -67,3 +67,5 @@ if vim.g.started_by_firenvim == true then
 else
   vim.o.laststatus = 2
 end
+
+vim.cmd('highlight CursorLine term=reverse cterm=reverse gui=reverse')
