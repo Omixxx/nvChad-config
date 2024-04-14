@@ -33,10 +33,10 @@ lspconfig.dartls.setup {
 }
 
 lspconfig.clangd.setup {
-  -- on_attach = on_attach,
-  -- capabilities = capabilities,
-  -- filetypes = { "c" },
-  -- cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "c" },
+  cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
 }
 
 lspconfig.terraformls.setup {

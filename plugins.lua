@@ -16,7 +16,49 @@ local plugins = {
   --
   --
   -- lazy.nvim
+
+  -- code screenshots
   --
+  {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    config = function()
+      require("silicon").setup {
+        -- Configuration here, or leave empty to use defaults
+        font = "JetBrainsMono Nerd Font=34;Noto Color Emoji=34",
+        theme = "Dracula",
+        to_clipboard = true,
+        language = function()
+          return vim.bo.filetype
+        end,
+      }
+    end,
+  },
+  {
+    "johmsalas/text-case.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("textcase").setup {}
+      require("telescope").load_extension "textcase"
+    end,
+    keys = {
+      "ga", -- Default invocation prefix
+      { "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
+    },
+    cmd = {
+      -- NOTE: The Subs command name can be customized via the option "substitude_command_name"
+      "Subs",
+      "TextCaseOpenTelescope",
+      "TextCaseOpenTelescopeQuickChange",
+      "TextCaseOpenTelescopeLSPChange",
+      "TextCaseStartReplacingCommand",
+    },
+    -- If you want to use the interactive feature of the `Subs` command right away, text-case.nvim
+    -- has to be loaded on startup. Otherwise, the interactive feature of the `Subs` will only be
+    -- available after the first executing of it or after a keymap of text-case.nvim has been used.
+    lazy = false,
+  },
   {
     "lervag/vimtex",
     lazy = false,
@@ -26,14 +68,14 @@ local plugins = {
       vim.g.vimtex_quickfix_open_on_warning = 0
     end,
   },
-  {
-    dir = "~/projects/pastelli.nvim", -- Your path
-    name = "pastelli",
-    lazy = false,
-    config = function()
-      require("pastelli").setup {}
-    end,
-  },
+  -- {
+  --   dir = "~/projects/pastelli.nvim", -- Your path
+  --   name = "pastelli",
+  --   lazy = false,
+  --   config = function()
+  --     require("pastelli").setup {}
+  --   end,
+  -- },
   {
     "nvim-java/nvim-java",
     lazy = false,
@@ -56,61 +98,13 @@ local plugins = {
       },
     },
     config = function()
-      require("java").setup {}
-      require("lspconfig").jdtls.setup {
-        on_attach = require("plugins.configs.lspconfig").on_attach,
-        capabilities = require("plugins.configs.lspconfig").capabilities,
-        filetypes = { "java" },
-      }
+      -- require("java").setup {}
+      -- require("lspconfig").jdtls.setup {
+      --   on_attach = require("plugins.configs.lspconfig").on_attach,
+      --   capabilities = require("plugins.configs.lspconfig").capabilities,
+      --   filetypes = { "java" },
+      -- }
     end,
-  },
-  {
-    "m4xshen/hardtime.nvim",
-    lazy = false,
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {},
-    config = function()
-      require("hardtime").setup {
-        disabled_keys = {
-          ["<Up>"] = {},
-          ["<Right>"] = {},
-          ["<Down>"] = {},
-          ["<Left>"] = {},
-        },
-      }
-    end,
-  },
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    cmd = "Oil",
-    confg = function()
-      require("oil").setup {
-        -- your configuration comes here
-      }
-    end,
-  },
-  {
-    "Myzel394/easytables.nvim",
-    config = function(_, opts)
-      require("easytables").setup {}
-    end,
-    cmd = {
-      "EasyTablesCreateNew",
-      "ExportTable",
-      "InsertColumnLeft",
-      "InsertColumnRight",
-      "InsertRowAbove",
-      "InsertRowBelow",
-      "DeleteColumn",
-      "DeleteRow",
-      "MoveColumnLeft",
-      "MoveColumnRight",
-      "MoveRowUp",
-      "MoveRowDown",
-    },
   },
   {
     "uga-rosa/translate.nvim",

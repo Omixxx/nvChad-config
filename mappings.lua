@@ -28,12 +28,13 @@ M.general = {
     ["gl"] = { "$", desc = "go to the end of the line" },
     ["gh"] = { "0w", desc = "go to the start of the line" },
     ["*"] = { "*``" },
-    ["gs"] = { 'maviw"hy:,$s/<C-r>h//g<left><left>', desc = "global substitution" },
+    ["gs"] = { 'maviw"hy:,$s/<C-r>h//g<left><left><left>', desc = "global substitution" },
   },
   v = {
     ["gl"] = { "$, go to the end of the line" },
     ["gh"] = { "0w, go to the start of the line" },
     ["tr"] = { "<cmd>Translate EN<CR>" },
+    ["cs"] = { ":Silicon<CR>" },
   },
   i = {},
 }
@@ -53,12 +54,12 @@ M.lspconfig = {
     ["<leader>ld"] = { ":lua FloatingDiagnostics()<cr>", desc = "Floating diagnostic" },
     ["<leader>rn"] = { ":lua LspRename()<CR>", desc = "LSP rename" },
     ["<leader>la"] = { "<cmd>CodeActionMenu<CR>", desc = "LSP code action" },
-    ["gn"] = { "lua: LspGoToNext()<CR>", desc = "go to next diagnostic" },
-    ["gN"] = { "lua: LspGoToPrevious()<CR>", desc = "go to previous diagnostic" },
+    ["gn"] = { ":lua LspGoToNext()<CR>", desc = "go to next diagnostic" },
+    ["gN"] = { ":lua LspGoToPrevious()<CR>", desc = "go to previous diagnostic" },
   },
 }
 
--- 
+--
 -- FUNCTIONS
 --
 
