@@ -29,12 +29,15 @@ M.general = {
     ["gh"] = { "0w", desc = "go to the start of the line" },
     ["*"] = { "*``" },
     ["gs"] = { 'maviw"hy:,$s/<C-r>h//g<left><left><left>', desc = "global substitution" },
+    ["<leader>fi"] = { "z=1<CR><CR>", desc = "fix the word under the cursor" },
   },
   v = {
     ["gl"] = { "$, go to the end of the line" },
     ["gh"] = { "0w, go to the start of the line" },
     ["tr"] = { "<cmd>Translate EN<CR>" },
-    ["cs"] = { ":Silicon<CR>" },
+    ["<leader>cs"] = { ":Silicon<CR>" },
+    ["<leader>fi"] = { ":s/( /(/ge", },
+    ["<leader>fp"] = { ":s# \\+# #g<CR><Esc>", },
   },
   i = {},
 }

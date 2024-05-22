@@ -16,9 +16,9 @@ local plugins = {
   --
   --
   -- lazy.nvim
-
-  -- code screenshots
   --
+  -- code screenshots
+
   {
     "michaelrommel/nvim-silicon",
     lazy = true,

@@ -68,4 +68,4 @@ else
   vim.o.laststatus = 2
 end
 
-vim.cmd("highlight CursorLine guibg=#000000")
+vim.cmd "highlight CursorLine guibg=#000000"
